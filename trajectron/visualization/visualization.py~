@@ -1,4 +1,4 @@
-from examples.postdoc.traj_prediction.models.trajectronpp.base.trajectron.utils import prediction_output_to_trajectories
+from utils import prediction_output_to_trajectories
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
 import numpy as np
