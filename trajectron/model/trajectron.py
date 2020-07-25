@@ -94,6 +94,27 @@ class Trajectron(object):
                                 map=map,
                                 prediction_horizon=self.ph)
 
+
+        ph = 6
+        num_samples = 0
+        z_mode = False
+        gmm_mode = False
+        full_dist = True
+        all_z_sep = False
+        import IPython;IPython.embed(header='train_loss - can we augment?')
+        # predictions = model.predict(inputs=x,
+        #                             inputs_st=x_st_t,
+        #                             first_history_indices=first_history_index,
+        #                             neighbors=neighbors_data_st,
+        #                             neighbors_edge_value=neighbors_edge_value,
+        #                             robot=robot_traj_st_t,
+        #                             map=map,
+        #                             prediction_horizon=ph,
+        #                             num_samples=num_samples,
+        #                             z_mode=z_mode,
+        #                             gmm_mode=gmm_mode,
+        #                             full_dist=full_dist,
+        #                             all_z_sep=all_z_sep)
         return loss
 
     def eval_loss(self, batch, node_type):
@@ -170,6 +191,7 @@ class Trajectron(object):
                 map = map.to(self.device)
 
             # Run forward pass
+            import IPython;IPython.embed(header='call to predict')
             predictions = model.predict(inputs=x,
                                         inputs_st=x_st_t,
                                         first_history_indices=first_history_index,

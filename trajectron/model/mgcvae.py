@@ -505,7 +505,7 @@ class MultimodalGenerativeCVAE(object):
 
         if mode == ModeKeys.TRAIN or mode == ModeKeys.EVAL:
             y_e = self.encode_node_future(mode, node_present, y)
-
+        # import IPython;IPython.embed(header='obtain_encoded')
         return x, x_r_t, y_e, y_r, y, n_s_t0
 
     def encode_node_history(self, mode, node_hist, first_history_indices):
@@ -1133,10 +1133,12 @@ class MultimodalGenerativeCVAE(object):
                                                               full_dist=full_dist,
                                                               all_z_sep=all_z_sep)
 
+
         _, our_sampled_future = self.p_y_xz(mode, x, x_nr_t, y_r, n_s_t0, z,
                                             prediction_horizon,
                                             num_samples,
                                             num_components,
                                             gmm_mode)
 
+        import IPython;IPython.embed(header='mgcvae:predict')
         return our_sampled_future
